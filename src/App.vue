@@ -1,8 +1,16 @@
 <template>
     <div class="main">
         <div class="bar">
-            <button class="list-icon" @click="isGrid = false">LIST</button>
-            <button class="grid-icon active" @click="isGrid = true">GRID</button>
+            <button
+                class="list-icon"
+                :class="{ active: !isGrid }"
+                @click="isGrid = false"
+            >LIST</button>
+            <button
+                class="grid-icon"
+                :class="{ active: isGrid }"
+                @click="isGrid = true"
+            >GRID</button>
         </div>
         <ul :class="{
             grid: isGrid,
@@ -98,5 +106,9 @@ const isGrid = ref(true);
     li img {
         width: 100%;
         height: 100%;
+    }
+    button.active {
+        background: red;
+        color: #fff;
     }
 </style>
